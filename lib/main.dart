@@ -41,6 +41,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String howMuchTime = '?';
 
   Future<void> cicloDePan(
     String label, [
@@ -49,14 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
     if (_counter == limite) {
       _counter = 0;
     }
+    howMuchTime = '?';
+    final DateTime dateTime = DateTime.now();
     while (_counter < limite) {
-      print('🍞🌭🥯🥖 $label');
-      print('$_counter-1. Ingredientes');
-      print('$_counter-2. preparacion');
-      print('$_counter-3. horneado');
-      print('$_counter-4. enfriar');
-      print('$_counter-5. empacado');
-      print('$_counter-6. venta');
+      // debugPrint('🍞🌭🥯🥖 $label');
+      // debugPrint('$_counter-1. Ingredientes');
+      // debugPrint('$_counter-2. preparacion');
+      // debugPrint('$_counter-3. horneado');
+      // debugPrint('$_counter-4. enfriar');
+      // debugPrint('$_counter-5. empacado');
+      // debugPrint('$_counter-6. venta');
 
       // Yo 4
       // Mateo 9
@@ -70,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
       );
       setState(() {});
     }
+    howMuchTime = DateTime.now().difference(dateTime).inMilliseconds.toString();
+    howMuchTime = '🍞🌭🥯🥖 $howMuchTime';
   }
 
   @override
@@ -109,8 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Text(
+              'Hemos tardado $howMuchTime milisegundos',
             ),
             Text(
               '$_counter',
@@ -122,7 +127,10 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           cicloDePan('En UI');
-          cicloDePan('Este es el otro', 100);
+          // cicloDePan('Este es el otro', 100);
+          // cicloDePan('Este es el otro 2', 200);
+          // cicloDePan('Este es el otro 3', 300);
+          // cicloDePan('Este es el otro', 400);
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
