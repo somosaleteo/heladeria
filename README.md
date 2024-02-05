@@ -32,3 +32,27 @@ Un proyecto para masterizar flutter.
 
 * Youtube - Introducción [Tiempo en el Mundo de la Programación: Conversación Profunda sobre Ciclos y Sincronización en Dart](https://youtu.be/unjSd9Uv7Qg)
 * Youtube [Desafia los Límites Temporales: Integrando Tiempo, Rendimiento y Experiencia de Usuario en Flutter](https://www.youtube.com/watch?v=r10Dd4b-23s)
+
+
+
+## Resumen del Taller 3: taller_3_poo_e_introduccion_a_stateless_y_stateful_widgets
+
+### 1. **Introducción a la POO**
+Explicación de qué es la Programación Orientada a Objetos, su importancia y cómo se aplica en el desarrollo de software moderno.
+
+### 2. **Estado y Forma**
+Definición y diferenciación de estado (los datos que un objeto puede almacenar) y forma (los métodos que un objeto puede ejecutar).
+
+### 3. **Clases y Objetos**
+Introducción a las clases como plantillas para objetos y cómo los objetos son instancias de estas clases en el contexto de Flutter.
+
+### 4. **StatelessWidget y StatefulWidget**
+Explicación de StatelessWidget como un widget inmutable y StatefulWidget como un widget con estado efímero en Flutter.
+
+### 5. **Principios de POO**
+- **Abstracción**: Manejo de la complejidad al ocultar detalles y mostrar solo la información esencial.
+- **Encapsulamiento**: Protección del estado de un objeto y su uso en Flutter.
+- **Herencia**: Creación de nuevas clases a partir de otras existentes y su importancia en la reutilización de código.
+- **Polimorfismo**: Tratamiento uniforme de objetos de diferentes clases.
+
+Este resumen ofrece una estructura para entender los fundamentos de la Programación Orientada a Objetos y cómo estos conceptos se relacionan y aplican en Flutter para desarrollar aplicaciones robustas y mantenibles.
