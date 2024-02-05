@@ -52,6 +52,7 @@ class _BarcodeLabelsPageState extends State<BarcodeLabelsPage> {
   late DateTime startDate;
   int currentId = 0;
   int currentIndex = 0;
+  int comparisonId = 0;
   final List<int> trash = <int>[];
   final List<int> orderedLabelsId = <int>[];
   bool isStarted = false;
@@ -68,18 +69,30 @@ class _BarcodeLabelsPageState extends State<BarcodeLabelsPage> {
     ];
     currentIndex = 1;
     for (int i = 1; i < labelsId.length; i++) {
-      if (labelsId[i] == labelsId[i - 1]) {
-        continue;
-      } else if (labelsId[i] > labelsId[i - 1]) {}
       currentId = labelsId[i];
       currentIndex = i;
-      // orderedLabelsId.add(currentId);
+      for (int j = i + 1; j < labelsId.length; j++) {
+        comparisonId = labelsId[j];
+        await Future<void>.delayed(
+            Duration(
+              milliseconds: comparisonId <= currentId ? 500 : 250,
+            ), () {
+          setState(() {});
+        });
+        if (comparisonId <= currentId) {
+          labelsId[currentIndex] = comparisonId;
+          labelsId[j] = currentId;
+          currentId = comparisonId;
+        }
+      }
+
       orderedLabelsId.clear();
       orderedLabelsId.addAll(labelsId);
       await Future<void>.delayed(const Duration(milliseconds: 500), () {
         setState(() {});
       });
     }
+    orderedLabelsId.removeAt(0);
   }
 
   @override
@@ -99,8 +112,8 @@ class _BarcodeLabelsPageState extends State<BarcodeLabelsPage> {
       color: Colors.purpleAccent,
     );
     final Widget comparisonValueLabel = LabelWidget(
-      label: '${orderedLabelsId[currentIndex]}',
-      color: Colors.orangeAccent,
+      label: '$comparisonId',
+      color: comparisonId <= currentId ? Colors.green : Colors.orangeAccent,
     );
     final List<LabelWidget> labels = _labelsPrinter(orderedLabelsId);
 
