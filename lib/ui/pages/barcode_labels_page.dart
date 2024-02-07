@@ -53,6 +53,7 @@ class _BarcodeLabelsPageState extends State<BarcodeLabelsPage> {
   int currentId = 0;
   int currentIndex = 0;
   int comparisonId = 0;
+  bool finished = false;
   final List<int> trash = <int>[];
   final List<int> orderedLabelsId = <int>[];
   bool isStarted = false;
@@ -93,6 +94,7 @@ class _BarcodeLabelsPageState extends State<BarcodeLabelsPage> {
       });
     }
     orderedLabelsId.removeAt(0);
+    finished = true;
   }
 
   @override
@@ -124,21 +126,26 @@ class _BarcodeLabelsPageState extends State<BarcodeLabelsPage> {
       body: Column(
         children: <Widget>[
           Text(
-            'Etiquetas de proveedor: ${widget.labelsId}',
+            '${widget.labelsId.length} etiquetas de proveedor a organizar',
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               currentLabel,
               currentIndexLabel,
-              comparisonValueLabel
+              comparisonValueLabel,
             ],
           ),
           Text(
             'Hemos desperdiciado ${trash.length} etiquetas',
           ),
           Text(
-            'tardamos $duration ms en completar la tarea',
+            finished
+                ? 'tardamos $duration ms en completar la tarea'
+                : 'Organizando, han transcurrido $duration ms ...',
+            style: finished
+                ? const TextStyle(color: Colors.green, fontSize: 30)
+                : null,
           ),
           Expanded(
             child: Row(

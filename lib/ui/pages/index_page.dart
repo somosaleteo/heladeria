@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/navigation_tile_widget.dart';
-import 'barcode_labels_page.dart';
+import 'exercises_sort_label_page.dart';
 import 'my_home_page.dart';
 
 class IndexPage extends StatelessWidget {
@@ -23,11 +23,10 @@ class IndexPage extends StatelessWidget {
                 'Aqui encontraremos la informacion de los primeros dos talleres, Aqui encontraremos la informacion de los primeros dos talleres, Aqui encontraremos la informacion de los primeros dos talleres, ',
           ),
           NavigationTileWidget(
-            page: BarcodeLabelsPage(
-              labelsId: <int>[0, 5, 6, 7, 8, 9, 1, 2, 4, 3],
-            ),
-            title: 'Taller 3',
-            description: 'Corresponde al taller # 3',
+            page: ExercisesSortLabelPage(),
+            title: 'Ejercicios agrupados',
+            description:
+                'Modifica el código de la página barcode_labes_page.dart para cumplir con el ordenamiento de todas las etiquetas.',
           ),
         ],
       ),
